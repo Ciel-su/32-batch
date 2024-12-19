@@ -277,35 +277,37 @@ public:
     {
         cout << "\nFull-Time Employee Report\n\n";
         cout << left << setw(6) << "ID"
-             << setw(12) << "Name"
+             << setw(11) << "Name"
              << setw(14) << "Position"
              << setw(12) << "Type"
-             << setw(12) << "Leave Days"
+             << setw(12) << "LeaveDays"
              << setw(10) << "Overtime"
-             << setw(12) << "Before Tax"
-             << setw(10) << "Tax Cost"
-             << "Net Salary\n";
-        cout << "-----------------------------------------------------------------------------------------------------\n";
+             << setw(14) << "WorkingHours"
+             << setw(12) << "BeforeTax"
+             << setw(11) << "TaxCost"
+             << "NetSalary\n";
+        cout << "-----------------------------------------------------------------------------------------------------------------\n";
 
         for (int i = 0; i < employeeCount; ++i)
         {
             if (employees[i].getType() == "fulltime")
             {
-                double grossSalary = 0, taxCost = 0;
+                double grossSalary = 0, taxCost = 0, bonus = 0, hourlyWage = 0;
                 double netSalary = employees[i].calculateSalary(grossSalary, taxCost);
 
                 cout << left << setw(6) << employees[i].getId()
-                     << setw(12) << employees[i].getName()
+                     << setw(11) << employees[i].getName()
                      << setw(14) << employees[i].getPosition()
                      << setw(12) << employees[i].getType()
                      << setw(12) << employees[i].getLeaveDays()
                      << setw(10) << static_cast<int>(employees[i].getOvertimeHours()) // Cast to int for full-time
-                     << "$" << setw(11) << fixed << setprecision(2) << grossSalary
+                     << "$" << setw(13) << static_cast<int>(employees[i].getWorkingHours())
+                     << "$" << setw(10) << fixed << setprecision(2) << grossSalary
                      << "$" << setw(10) << fixed << setprecision(2) << taxCost
                      << "$" << fixed << setprecision(2) << netSalary << "\n";
             }
         }
-        cout << "-----------------------------------------------------------------------------------------------------\n\n";
+        cout << "-----------------------------------------------------------------------------------------------------------------\n\n";
     }
 
     // Print part-time employees in a column format
