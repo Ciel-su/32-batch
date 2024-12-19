@@ -162,7 +162,7 @@ public:
             if (workingHours > 0)
             {
                 grossSalary = hourlyWage * workingHours; // Gross salary
-                taxCost = SOCIAL_SECURITY_TAX + (grossSalary * 0.02);   // Fixed security tax for part-time and tax 2% of income
+                taxCost = 0;   // Fixed security tax for part-time and tax 2% of income
 
                 double netSalary = grossSalary - taxCost;
                 return max(0.0, netSalary); // Ensure salary is not negative
