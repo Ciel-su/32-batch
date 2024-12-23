@@ -37,7 +37,7 @@ void heapSort(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {12, 11, 13, 5, 6, 7}; // Sample array for testing
+    vector<int> arr = {12, 11, 13, 5, 6, 7};
 
     cout << "Original Array: ";
     for (int num : arr) {

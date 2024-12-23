@@ -101,6 +101,7 @@ public:
     string getName() const { return name; }
     string getType() const { return type; }
     string getPosition() const { return position; }
+    string getStartDate() const { return start_date; }
     int getLeaveDays() const { return leaveDays; }
     double getOvertimeHours() const { return overtimeHours; }
     double getWorkingHours() const { return workingHours; }
@@ -280,13 +281,14 @@ public:
              << setw(11) << "Name"
              << setw(14) << "Position"
              << setw(12) << "Type"
+             << setw(12) << "StartDate"
              << setw(12) << "LeaveDays"
              << setw(10) << "Overtime"
              << setw(14) << "WorkingHours"
              << setw(12) << "BeforeTax"
              << setw(11) << "TaxCost"
              << "NetSalary\n";
-        cout << "-----------------------------------------------------------------------------------------------------------------\n";
+        cout << "---------------------------------------------------------------------------------------------------------------------------\n";
 
         for (int i = 0; i < employeeCount; ++i)
         {
@@ -299,6 +301,7 @@ public:
                      << setw(11) << employees[i].getName()
                      << setw(14) << employees[i].getPosition()
                      << setw(12) << employees[i].getType()
+                     << setw(12) << employees[i].getStartDate()
                      << setw(12) << employees[i].getLeaveDays()
                      << setw(10) << static_cast<int>(employees[i].getOvertimeHours()) // Cast to int for full-time
                      << "$" << setw(13) << static_cast<int>(employees[i].getWorkingHours())
@@ -307,7 +310,7 @@ public:
                      << "$" << fixed << setprecision(2) << netSalary << "\n";
             }
         }
-        cout << "-----------------------------------------------------------------------------------------------------------------\n\n";
+        cout << "---------------------------------------------------------------------------------------------------------------------------\n\n";
     }
 
     // Print part-time employees in a column format
@@ -318,9 +321,10 @@ public:
              << setw(12) << "Name"
              << setw(17) << "Position"
              << setw(12) << "Type"
+             << setw(12) << "StartDate"
              << setw(17) << "Working Hours"
              << "Net Salary\n";
-        cout << "----------------------------------------------------------------------------\n";
+        cout << "-----------------------------------------------------------------------------------------\n";
 
         for (int i = 0; i < employeeCount; ++i)
         {
@@ -334,11 +338,12 @@ public:
                      << setw(12) << employees[i].getName()
                      << setw(17) << employees[i].getPosition()
                      << setw(12) << employees[i].getType()
+                     << setw(12) << employees[i].getStartDate()
                      << setw(17) << static_cast<int>(employees[i].getWorkingHours()) // Cast to int for part-time
                      << "$" << setw(10) << fixed << setprecision(2) << netSalary << "\n";
             }
         }
-        cout << "----------------------------------------------------------------------------\n\n";
+        cout << "-----------------------------------------------------------------------------------------\n\n";
     }
     // Print all employees (full-time and part-time) in a combined report
     // Add this function to implement heap sort on employee names
